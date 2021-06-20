@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/quizFragment">
+
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.rsschool.quiz.QuizFragment"
+        android:label="QuizFragment"
+        tools:layout="@layout/fragment_quiz">
+        <argument
+            android:name="myArg"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/one_to_two"
+            app:destination="@id/quizFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizFragment2"
+        android:name="com.rsschool.quiz.QuizFragment"
+        android:label="QuizFragment"
+        tools:layout="@layout/fragment_quiz">
+        <argument
+            android:name="myArg"
+            app:argType="integer"
+            android:defaultValue="1" />
+        <action
+            android:id="@+id/two_to_three"
+            app:destination="@id/quizFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizFragment3"
+        android:name="com.rsschool.quiz.QuizFragment"
+        android:label="QuizFragment"
+        tools:layout="@layout/fragment_quiz">
+        <argument
+            android:name="myArg"
+            app:argType="integer"
+            android:defaultValue="2" />
+        <action
+            android:id="@+id/three_to_four"
+            app:destination="@id/quizFragment4" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizFragment4"
+        android:name="com.rsschool.quiz.QuizFragment"
+        android:label="QuizFragment"
+        tools:layout="@layout/fragment_quiz">
+        <argument
+            android:name="myArg"
+            app:argType="integer"
+            android:defaultValue="3" />
+        <action
+            android:id="@+id/to_end"
+            app:destination="@id/endFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/endFragment"
+        android:name="com.rsschool.quiz.EndFragment"
+        android:label="fragment_end"
+        tools:layout="@layout/fragment_end" />
+</navigation>
