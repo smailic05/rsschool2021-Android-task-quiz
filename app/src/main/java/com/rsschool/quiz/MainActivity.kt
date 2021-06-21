@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity(), ActivityInterface {
         setContentView(R.layout.activity_main)
     }
 
-    override fun BackPressed() {
+    override fun backPressed() {
         super.onBackPressed()
     }
 }

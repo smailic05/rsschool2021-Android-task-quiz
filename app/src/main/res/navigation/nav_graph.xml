@@ -5,6 +5,7 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/quizFragment">
 
+
     <fragment
         android:id="@+id/quizFragment"
         android:name="com.rsschool.quiz.QuizFragment"
@@ -53,6 +54,19 @@
             android:name="myArg"
             app:argType="integer"
             android:defaultValue="3" />
+        <action
+            android:id="@+id/to_end"
+            app:destination="@id/quizFragment5" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizFragment5"
+        android:name="com.rsschool.quiz.QuizFragment"
+        android:label="QuizFragment"
+        tools:layout="@layout/fragment_quiz">
+        <argument
+            android:name="myArg"
+            android:defaultValue="4"
+            app:argType="integer" />
         <action
             android:id="@+id/to_end"
             app:destination="@id/endFragment" />
