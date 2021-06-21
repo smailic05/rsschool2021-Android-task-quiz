@@ -1,11 +1,11 @@
 package com.rsschool.quiz
 
 import android.content.Intent
-import android.content.Intent.getIntent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.rsschool.quiz.databinding.FragmentEndBinding
@@ -37,11 +37,11 @@ class EndFragment : Fragment() {
                 .setType("plain/text")
                 .putExtra(
                     Intent.EXTRA_TEXT,"Your result is ${result}%\n\n" +
-                        "Дал Дал: \n ${model.list[0]}; \n\n" +
-                        "Дал Дал: \n ${model.list[1]}; \n\n" +
-                        "Дал Дал: \n ${model.list[2]}; \n\n" +
-                        "Дал Дал: \n ${model.list[3]}; \n\n" +
-                        "Дал Дал: \n ${model.list[4]}; \n\n")
+                        "15 +3: \n Your answer is ${model.list[0]}; \n\n" +
+                        "5+5: \n  Your answer is ${model.list[1]}; \n\n" +
+                        "8+8: \n  Your answer is ${model.list[2]}; \n\n" +
+                        "5-5: \n  Your answer is ${model.list[3]}; \n\n" +
+                        "1+1: \n  Your answer is ${model.list[4]}; \n\n")
                 .putExtra(Intent.EXTRA_EMAIL,"murad0660@gmail.com")
             startActivity(intent)
 
@@ -50,6 +50,9 @@ class EndFragment : Fragment() {
             val intent = activity?.intent
             activity?.finish()
             startActivity(intent)
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            activity?.finish()
         }
     }
 
@@ -63,4 +66,5 @@ class EndFragment : Fragment() {
         if (model.list[4] == resources.getString(R.string.answer5)) result += 20
         return result
     }
+
 }

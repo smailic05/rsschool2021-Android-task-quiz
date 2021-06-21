@@ -38,15 +38,27 @@ class QuizFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        if (args.myArg%2!=0){
-            activity?.setTheme(R.style.Theme_Quiz_First)
-            activity?.window?.statusBarColor = resources.getColor(R.color.deep_orange_100_dark)
-        }
-        else
-        {
-            activity?.setTheme(R.style.Theme_Quiz_Second)
-            activity?.window?.statusBarColor = resources.getColor(R.color.yellow_100_dark)
+        when(args.myArg){
+            0->{
+                activity?.setTheme(R.style.Theme_Quiz_First)
+                activity?.window?.statusBarColor = resources.getColor(R.color.deep_orange_100_dark)
+            }
+            1->{
+                activity?.setTheme(R.style.Theme_Quiz_Second)
+                activity?.window?.statusBarColor = resources.getColor(R.color.yellow_100_dark)
+            }
+            2->{
+                activity?.setTheme(R.style.Theme_Quiz_Third)
+                activity?.window?.statusBarColor = resources.getColor(R.color.secondary_text_third)
+            }
+            3->{
+                activity?.setTheme(R.style.Theme_Quiz_Fourth)
+                activity?.window?.statusBarColor = resources.getColor(R.color.secondary_text_fourth)
+            }
+            4->{
+                activity?.setTheme(R.style.Theme_Quiz_Fifth)
+                activity?.window?.statusBarColor = resources.getColor(R.color.secondary_text_fifth)
+            }
         }
         _binding = FragmentQuizBinding.inflate(inflater, container, false)
 
@@ -61,7 +73,6 @@ class QuizFragment : Fragment() {
         val navController = host.navController
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
-
         binding.toolbar.title = "Question ${amount+1}"
 
         if (model.list[amount]!="")
@@ -71,6 +82,8 @@ class QuizFragment : Fragment() {
         }
         if (amount!=0)
             binding.previousButton.isEnabled=true
+        if (amount==4)
+            binding.nextButton.text="submit"
 
         binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
             val rb = view.findViewById(checkedId) as RadioButton
@@ -82,15 +95,15 @@ class QuizFragment : Fragment() {
 
         when (amount)
         {
-            0-> navTo(view, listOf("Дал Дал","a","Не ушёл","Отошёл","Перешёл","Кринж"),R.id.one_to_two)
+            0-> navTo(view, listOf("15 +3","18","28","47","0","1"),R.id.one_to_two)
 
-            1-> navTo(view, listOf("Дал Дал","a","b","c","d","e"),R.id.two_to_three)
+            1-> navTo(view, listOf("5+5","1","2","3","10","5"),R.id.two_to_three)
 
-            2->navTo(view, listOf("Дал Дал","a","g","h","i","g"),R.id.three_to_four)
+            2->navTo(view, listOf("8+8","16","5","6","66","1"),R.id.three_to_four)
 
-            3->navTo(view, listOf("Дал Дал","a","l","m","n","o"),R.id.to_end)
+            3->navTo(view, listOf("5-5","0","10","15","16","-5"),R.id.to_end)
 
-            4->navTo(view, listOf("Дал Дал","a","l","m","n","o"),R.id.to_end)
+            4->navTo(view, listOf("1+1","2","3","1","0","9"),R.id.to_end)
 
 
         }

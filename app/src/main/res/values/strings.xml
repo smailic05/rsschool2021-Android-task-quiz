@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Quiz</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="answer1">a</string>
-    <string name="answer2">a</string>
-    <string name="answer3">a</string>
-    <string name="answer4">a</string>
-    <string name="answer5">a</string>
+    <string name="answer1">18</string>
+    <string name="answer2">10</string>
+    <string name="answer3">16</string>
+    <string name="answer4">0</string>
+    <string name="answer5">2</string>
 </resources>
